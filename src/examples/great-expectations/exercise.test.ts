@@ -134,7 +134,7 @@ describe('Person', () => {
     expect(john.friends).not.toContain(paul);
   });
 
-  it.todo('will mutually remove friends', () => {
+  it('will mutually remove friends', () => {
     const john = new Person('John Lennon');
     const paul = new Person('Paul McCartney');
 

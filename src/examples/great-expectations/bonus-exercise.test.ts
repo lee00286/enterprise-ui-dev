@@ -8,36 +8,39 @@ import { KanbanBoard, defaultStatuses } from '$lib/kanban-board';
  */
 
 describe('Kanban Board', () => {
-  it.todo(
+  it(
     'should create a board with a title and an array of default statuses',
     () => {
       const title = 'Important Things';
       const board = new KanbanBoard(title);
-
-      expect.hasAssertions();
+      expect(board.title).toEqual(title);
+      expect(board.statuses).toEqual(defaultStatuses);
     },
   );
 
-  it.todo('add a status to a board using #addStatus', () => {
+  it('add a status to a board using #addStatus', () => {
     const title = 'Important Things';
     const status = 'Verifying';
     const board = new KanbanBoard(title);
+    const statusNum = board.statuses.length;
 
     board.addStatus(status);
 
-    expect.hasAssertions();
-
     // We don't really care what else is in board.statuses.
     // We just want to verify that it has the new status.
+    expect(board.statuses.length).toBe(statusNum + 1);
+    expect(board.statuses).toContain(status);
   });
 
-  it.todo('have a URL property that has the title in kebab case', () => {
+  it('have a URL property that has the title in kebab case', () => {
     const title = 'Important Things';
     const board = new KanbanBoard(title);
 
-    expect.hasAssertions();
-
     // Challenge: Could you say that I want this to be equal to *any* object
     // so long as it has a `url` property that matches.
+    const kebabTitle = title.toLowerCase().replace(" ", "-");
+    expect(board).toEqual(expect.objectContaining({
+      url: `https://example.com/boards/${kebabTitle}`,
+    }));
   });
 });
