@@ -8,15 +8,12 @@ import { KanbanBoard, defaultStatuses } from '$lib/kanban-board';
  */
 
 describe('Kanban Board', () => {
-  it(
-    'should create a board with a title and an array of default statuses',
-    () => {
-      const title = 'Important Things';
-      const board = new KanbanBoard(title);
-      expect(board.title).toEqual(title);
-      expect(board.statuses).toEqual(defaultStatuses);
-    },
-  );
+  it('should create a board with a title and an array of default statuses', () => {
+    const title = 'Important Things';
+    const board = new KanbanBoard(title);
+    expect(board.title).toEqual(title);
+    expect(board.statuses).toEqual(defaultStatuses);
+  });
 
   it('add a status to a board using #addStatus', () => {
     const title = 'Important Things';
@@ -38,9 +35,11 @@ describe('Kanban Board', () => {
 
     // Challenge: Could you say that I want this to be equal to *any* object
     // so long as it has a `url` property that matches.
-    const kebabTitle = title.toLowerCase().replace(" ", "-");
-    expect(board).toEqual(expect.objectContaining({
-      url: `https://example.com/boards/${kebabTitle}`,
-    }));
+    const kebabTitle = title.toLowerCase().replace(' ', '-');
+    expect(board).toEqual(
+      expect.objectContaining({
+        url: `https://example.com/boards/${kebabTitle}`,
+      }),
+    );
   });
 });

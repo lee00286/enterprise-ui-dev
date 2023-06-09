@@ -20,7 +20,7 @@ it('prefixes ids with "item-"', () => {
   expect.hasAssertions();
   const result = reducer([], add({ name: 'iPhone' }));
   expect(result).toEqual([
-    expect.objectContaining({ id: expect.stringMatching(/^item-/) })
+    expect.objectContaining({ id: expect.stringMatching(/^item-/) }),
   ]);
 });
 

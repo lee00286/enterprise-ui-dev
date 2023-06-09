@@ -6,6 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "vite",
+    "format:check": "prettier . --check --ignore-path .gitignore",
+    "format:fix": "prettier . --write --ignore-path .gitignore",
     "test:svelte": "vitest --config=vitest.config.svelte.ts",
     "test:all": "vitest",
     "test:accessibility": "vitest accessibility --run",
