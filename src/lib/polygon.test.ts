@@ -1,5 +1,5 @@
 import { beforeEach, describe, it, expect } from 'vitest';
-import { createPolygon, Polygon } from 'src/lib/polygon';
+import { createPolygon, Polygon } from './polygon';
 
 type ContextWithPolygon = {
   polygon: Polygon;
@@ -8,7 +8,7 @@ type ContextWithPolygon = {
 describe('createPolygon', () => {
   it('should create an object that is an instance of the Polygon class', () => {
     const polygon = createPolygon('triangle', 20);
-    expect(polygon).toBeInstanceOf(Polygon);
+    expect(polygon).toBeInstanceOf(createPolygon);
   });
 });
 
