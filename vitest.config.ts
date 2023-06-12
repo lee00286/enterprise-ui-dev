@@ -34,5 +34,6 @@ export default defineConfig({
       ],
       all: true,
     },
+    reporters: ['default', 'html'],
   },
 });
